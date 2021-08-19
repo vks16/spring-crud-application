@@ -1,8 +1,11 @@
 package com.vks.isdown.dao;
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import com.vks.isdown.model.Video;
 
@@ -22,6 +25,25 @@ public class FakeVideoAccessService implements VideoDao {
     public List<Video> getVideos() {
         return DB;
     }
-    
+
+    @Override
+    public Optional<Video> getVideoById(UUID id) {
+        return DB.stream().filter(e -> e.getId().equals(id)).findFirst();
+    }
+
+    @Override
+    public int deleteVideoById(UUID id) {
+        var responseCode = 0;
+        getVideoById(id).ifPresent(e -> DB.remove(e));
+        return responseCode;
+    }
+
+    @Override
+    public int updateVideoById(UUID id, Video video) {
+        var responseCode = 0;
+        getVideoById(id).ifPresent(e -> DB.set(DB.indexOf(e), video));
+        return responseCode;
+    }
+
     
 }

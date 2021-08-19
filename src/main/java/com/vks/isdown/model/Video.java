@@ -9,7 +9,7 @@ public class Video {
     private String title;
     private final String url;
 
-    public Video(@JsonProperty("id") UUID id,@JsonProperty("title") String title,@JsonProperty("url") String url) {
+    public Video(@JsonProperty("id") UUID id, @JsonProperty("title") String title, @JsonProperty("url") String url) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -30,5 +30,5 @@ public class Video {
     public String getUrl() {
         return url;
     }
-    
+
 }

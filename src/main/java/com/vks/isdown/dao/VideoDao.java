@@ -1,6 +1,7 @@
 package com.vks.isdown.dao;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.vks.isdown.model.Video;
@@ -15,4 +16,10 @@ public interface VideoDao {
     }
 
     List<Video> getVideos();
+
+    Optional<Video> getVideoById(UUID id);
+
+    int deleteVideoById(UUID id);
+
+    int updateVideoById(UUID id, Video video);
 }
