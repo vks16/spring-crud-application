@@ -4,7 +4,9 @@ package com.vks.isdown.api;
 import java.util.List;
 import java.util.UUID;
 
-
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.vks.isdown.model.Video;
 import com.vks.isdown.service.VideoService;
@@ -30,7 +32,7 @@ public class VideoController {
     }
 
     @PostMapping("add")
-    public void addVideo(@RequestBody Video video) {
+    public void addVideo(@Valid @NotNull @RequestBody Video video) {
         videoService.addVideo(video);
     }
 
@@ -40,17 +42,17 @@ public class VideoController {
     }
 
     @GetMapping(path = "/{id}")
-    public Video getVideoById(@PathVariable("id") UUID id) {
+    public Video getVideoById(@NotBlank @PathVariable("id") UUID id) {
         return videoService.getVideoById(id).orElse(null);
     }
 
     @DeleteMapping(path = "/{id}")
-    public int deleteVideoById(@PathVariable("id") UUID id) {
+    public int deleteVideoById(@NotBlank @PathVariable("id") UUID id) {
         return videoService.deleteVideoById(id);
     }
 
     @PutMapping
-    public int updateVideoById(@RequestBody Video video) {
+    public int updateVideoById(@Valid @NotNull @RequestBody Video video) {
         return videoService.updateVideoById(video.getId(), video);
     }
 }
