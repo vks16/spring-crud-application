@@ -51,7 +51,7 @@ public class VideoController {
         return videoService.deleteVideoById(id);
     }
 
-    @PutMapping
+    @PutMapping("update")
     public int updateVideoById(@Valid @NotNull @RequestBody Video video) {
         return videoService.updateVideoById(video.getId(), video);
     }

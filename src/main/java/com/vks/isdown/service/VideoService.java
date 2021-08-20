@@ -17,7 +17,7 @@ public class VideoService {
     private final VideoDao videoDao;
 
     @Autowired
-    public VideoService(@Qualifier("fakeDao") VideoDao videoDao){
+    public VideoService(@Qualifier("postgres") VideoDao videoDao){
         this.videoDao = videoDao;
     }
 

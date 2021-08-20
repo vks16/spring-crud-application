@@ -1,0 +1,5 @@
+CREATE TABLE video (
+    id UUID NOT NULL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    url VARCHAR(1000) NOT NULL
+)

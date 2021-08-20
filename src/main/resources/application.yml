@@ -1,0 +1,9 @@
+server:
+  port: 8001
+
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/videosdb
+    username: postgres
+    password: password
+    pool-size: 30
